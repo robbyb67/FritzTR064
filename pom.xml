@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.bausdorf.fritz</groupId>
-	<artifactId>FritzTR064</artifactId>
+	<artifactId>fritzapi</artifactId>
 	<version>0.2.0-SNAPSHOT</version>
-	<name>fritzTR064</name>
+	<name>fritzapi</name>
 	<description>Access AVM TR-064 API on FRITZ!Box</description>
 
 	<properties>
@@ -71,6 +71,26 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub philipparndt Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/philipparndt/FritzTR064</url>
+		</repository>
+	</distributionManagement>
 </project>
