@@ -2,8 +2,6 @@ package de.bausdorf.avm.tr064.integration;
 
 import java.io.IOException;
 
-import javax.xml.bind.JAXBException;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,41 +30,49 @@ public class ServiceTest {
 		this.ip = System.getProperty(FB_HOST_PROP);
 		this.user = System.getProperty(FB_USER_PROP);
 		this.password = System.getProperty(FB_PASS_PROP);
-
-		log.info("test connection to host " + this.ip + " (" + this.user + "/" + this.password + ")");
-		this.fc = new FritzConnection(ip, user, password);
-		try {
-			//The connection has to be initiated. This will load the tr64desc.xml respectively igddesc.xml 
-			//and all the defined Services and Actions. 
-			log.info("initialize connection ...");
-			fc.init(null);
-			log.info("... connection initialized");
-		} catch (IOException | JAXBException e) {
-			//Any HTTP related error.
-			log.error(e.getMessage(), e);
+		if ((ip != null) && (user != null) && (password != null)) {
+			log.info("test connection to host " + this.ip + " (" + this.user + "/" + this.password + ")");
+			this.fc = new FritzConnection(ip, user, password);
+			try {
+				// The connection has to be initiated. This will load the
+				// tr64desc.xml respectively igddesc.xml
+				// and all the defined Services and Actions.
+				log.info("initialize connection ...");
+				fc.init(null);
+				log.info("... connection initialized");
+			} catch (IOException e) {
+				// Any HTTP related error.
+				log.error(e.getMessage(), e);
+			}
 		}
 
 	}
 
 	@Test
 	public void testGetDeviceLog() {
-		// Get the Service. In this case DeviceInfo:1
-		Service service = fc.getService("DeviceInfo:1");
+		if (ip != null) {
 
-		// Get the Action. in this case GetTotalAssociations
-		Action action = service.getAction("GetDeviceLog");
-		Response response1 = null;
-		try {
-			// Execute the action without any In-Parameter.
-			response1 = action.execute();
-			if (response1 == null) {
-				Assert.fail("null response from device");
+			// Get the Service. In this case DeviceInfo:1
+			Service service = fc.getService("DeviceInfo:1");
+
+			// Get the Action. in this case GetTotalAssociations
+			Action action = service.getAction("GetDeviceLog");
+			Response response1 = null;
+			try {
+				// Execute the action without any In-Parameter.
+				response1 = action.execute();
+				if (response1 == null) {
+					Assert.fail("null response from device");
+				}
+				String fbLog = response1.getValueAsString("NewDeviceLog");
+				log.info("\n" + fbLog + "\n");
+			} catch (UnsupportedOperationException | IOException | NoSuchFieldException e) {
+				log.error(e.getMessage(), e);
+				Assert.fail(e.getMessage());
 			}
-			String fbLog = response1.getValueAsString("NewDeviceLog");
-			log.info("\n" + fbLog + "\n");
-		} catch (UnsupportedOperationException | IOException | NoSuchFieldException e) {
-			log.error(e.getMessage(), e);
-			Assert.fail(e.getMessage());
+		} else {
+			log.warn("no host ip given, test skipped");
+
 		}
 	}
 

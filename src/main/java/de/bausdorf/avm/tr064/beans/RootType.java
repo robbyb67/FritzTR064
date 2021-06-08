@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * <p>Java-Klasse fï¿½r rootType complex type.
+ * <p>Java-Klasse für rootType complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
@@ -49,18 +49,18 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  * 
  */
-@XmlRootElement(name = "root", namespace="urn:dslforum-org:device-1-0")
+@XmlRootElement ( name="root")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "rootType", propOrder = {
-    "specVersion",
-    "device"
+"specVersion",
+"device"
 })
 public class RootType {
 	
-    @XmlElement(name="specVersion", required = true)
-    protected SpecVersionType specVersion;
+   @XmlElement(name="specVersion", required = true)
+    private SpecVersionType specVersion;
     @XmlElement(name="device", required = true)
-    protected DeviceDesc device;
+    private DeviceDesc device;
 
     /**
      * Ruft den Wert der specVersion-Eigenschaft ab.

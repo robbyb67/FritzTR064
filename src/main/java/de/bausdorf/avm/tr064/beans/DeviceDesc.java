@@ -25,18 +25,19 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 /**
- * <p>Java-Klasse fï¿½r deviceType complex type.
+ * <p>Java-Klasse für deviceType complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
@@ -67,8 +68,10 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
  * 
  * 
  */
+@XmlRootElement (name="device")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {
+@XmlType(name="device", 
+	propOrder = {
     "deviceType",
     "friendlyName",
     "manufacturer",
@@ -104,23 +107,21 @@ public class DeviceDesc {
     @XmlElement(required = true)
     @XmlSchemaType(name = "anyURI")
     private String modelURL;
-    @XmlElement(name = "udn", required = true)
-    @JacksonXmlProperty(localName="UDN")
+    @XmlElement(name = "UDN", required = true)
     private String udn;
-    @XmlElement(name = "upc")
-    @JacksonXmlProperty(localName="UPC")
+    @XmlElement(name = "UPC")
     private String upc;
 
     @XmlElementWrapper(name="iconList")
-    @XmlElement(name="icon")
+    @XmlAnyElement (lax = true)
     private List<IconType> iconList;
 
     @XmlElementWrapper(name="serviceList", required = true)
-    @XmlElement(name="service")
+    @XmlAnyElement (lax = true)
     private List<ServiceDesc> serviceList;
     
     @XmlElementWrapper(name="deviceList")
-    @XmlElement(name="device")
+    @XmlAnyElement (lax = true)
     private List<DeviceDesc> deviceList;
     
     @XmlSchemaType(name = "anyURI")

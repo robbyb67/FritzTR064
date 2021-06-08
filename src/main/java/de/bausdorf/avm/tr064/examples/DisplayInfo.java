@@ -22,19 +22,11 @@ package de.bausdorf.avm.tr064.examples;
 
 import java.io.IOException;
 
-import javax.xml.bind.JAXBException;
-
-
-
-
-
-
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.bausdorf.avm.tr064.FritzConnection;
+import de.bausdorf.avm.tr064.ParseException;
 
 
 public class DisplayInfo {
@@ -48,7 +40,7 @@ public class DisplayInfo {
 		super();
 	}
 
-	public static void main(String[] args) throws  IOException, JAXBException{
+	public static void main(String[] args) throws  IOException, ParseException {
 		if( args.length < 2 ) {
 			LOG.error("args: <fb-ip> <password> [user]");
 			System.exit(1);

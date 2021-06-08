@@ -1,275 +1,277 @@
 <scpd xmlns="urn:schemas-upnp-org:service-1-0">
-<specVersion>
-<major>1</major>
-<minor>0</minor>
-</specVersion>
-<actionList>
-<action>
-<name>GetCommonLinkProperties</name>
-<argumentList>
-<argument>
-<name>NewWANAccessType</name>
-<direction>out</direction>
-<relatedStateVariable>WANAccessType</relatedStateVariable>
-</argument>
-<argument>
-<name>NewLayer1UpstreamMaxBitRate</name>
-<direction>out</direction>
-<relatedStateVariable>Layer1UpstreamMaxBitRate</relatedStateVariable>
-</argument>
-<argument>
-<name>NewLayer1DownstreamMaxBitRate</name>
-<direction>out</direction>
-<relatedStateVariable>Layer1DownstreamMaxBitRate</relatedStateVariable>
-</argument>
-<argument>
-<name>NewPhysicalLinkStatus</name>
-<direction>out</direction>
-<relatedStateVariable>PhysicalLinkStatus</relatedStateVariable>
-</argument>
-</argumentList>
-</action>
-<action>
-<name>GetTotalBytesSent</name>
-<argumentList>
-<argument>
-<name>NewTotalBytesSent</name>
-<direction>out</direction>
-<relatedStateVariable>TotalBytesSent</relatedStateVariable>
-</argument>
-</argumentList>
-</action>
-<action>
-<name>GetTotalBytesReceived</name>
-<argumentList>
-<argument>
-<name>NewTotalBytesReceived</name>
-<direction>out</direction>
-<relatedStateVariable>TotalBytesReceived</relatedStateVariable>
-</argument>
-</argumentList>
-</action>
-<action>
-<name>GetTotalPacketsSent</name>
-<argumentList>
-<argument>
-<name>NewTotalPacketsSent</name>
-<direction>out</direction>
-<relatedStateVariable>TotalPacketsSent</relatedStateVariable>
-</argument>
-</argumentList>
-</action>
-<action>
-<name>GetTotalPacketsReceived</name>
-<argumentList>
-<argument>
-<name>NewTotalPacketsReceived</name>
-<direction>out</direction>
-<relatedStateVariable>TotalPacketsReceived</relatedStateVariable>
-</argument>
-</argumentList>
-</action>
-<action>
-<name>GetAddonInfos</name>
-<argumentList>
-<argument>
-<name>NewByteSendRate</name>
-<direction>out</direction>
-<relatedStateVariable>ByteSendRate</relatedStateVariable>
-</argument>
-<argument>
-<name>NewByteReceiveRate</name>
-<direction>out</direction>
-<relatedStateVariable>ByteReceiveRate</relatedStateVariable>
-</argument>
-<argument>
-<name>NewPacketSendRate</name>
-<direction>out</direction>
-<relatedStateVariable>PacketSendRate</relatedStateVariable>
-</argument>
-<argument>
-<name>NewPacketReceiveRate</name>
-<direction>out</direction>
-<relatedStateVariable>PacketReceiveRate</relatedStateVariable>
-</argument>
-<argument>
-<name>NewTotalBytesSent</name>
-<direction>out</direction>
-<relatedStateVariable>TotalBytesSent</relatedStateVariable>
-</argument>
-<argument>
-<name>NewTotalBytesReceived</name>
-<direction>out</direction>
-<relatedStateVariable>TotalBytesReceived</relatedStateVariable>
-</argument>
-<argument>
-<name>NewAutoDisconnectTime</name>
-<direction>out</direction>
-<relatedStateVariable>AutoDisconnectTime</relatedStateVariable>
-</argument>
-<argument>
-<name>NewIdleDisconnectTime</name>
-<direction>out</direction>
-<relatedStateVariable>IdleDisconnectTime</relatedStateVariable>
-</argument>
-<argument>
-<name>NewDNSServer1</name>
-<direction>out</direction>
-<relatedStateVariable>DNSServer1</relatedStateVariable>
-</argument>
-<argument>
-<name>NewDNSServer2</name>
-<direction>out</direction>
-<relatedStateVariable>DNSServer2</relatedStateVariable>
-</argument>
-<argument>
-<name>NewVoipDNSServer1</name>
-<direction>out</direction>
-<relatedStateVariable>VoipDNSServer1</relatedStateVariable>
-</argument>
-<argument>
-<name>NewVoipDNSServer2</name>
-<direction>out</direction>
-<relatedStateVariable>VoipDNSServer2</relatedStateVariable>
-</argument>
-<argument>
-<name>NewUpnpControlEnabled</name>
-<direction>out</direction>
-<relatedStateVariable>UpnpControlEnabled</relatedStateVariable>
-</argument>
-<argument>
-<name>NewRoutedBridgedModeBoth</name>
-<direction>out</direction>
-<relatedStateVariable>RoutedBridgedModeBoth</relatedStateVariable>
-</argument>
-</argumentList>
-</action>
-</actionList>
-<serviceStateTable>
-<stateVariable sendEvents="no">
-<name>WANAccessType</name>
-<dataType>string</dataType>
-<allowedValueList>
-<allowedValue>DSL</allowedValue>
-<allowedValue>POTS</allowedValue>
-<allowedValue>Cable</allowedValue>
-<allowedValue>Ethernet</allowedValue>
-<allowedValue>Other</allowedValue>
-</allowedValueList>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>Layer1UpstreamMaxBitRate</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>Layer1DownstreamMaxBitRate</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="yes">
-<name>PhysicalLinkStatus</name>
-<dataType>string</dataType>
-<allowedValueList>
-<allowedValue>Up</allowedValue>
-<allowedValue>Down</allowedValue>
-<allowedValue>Initializing</allowedValue>
-<allowedValue>Unavailable</allowedValue>
-</allowedValueList>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>WANAccessProvider</name>
-<dataType>string</dataType>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>MaximumActiveConnections</name>
-<dataType>ui2</dataType>
-<defaultValue>0</defaultValue>
-<allowedValueRange>
-<minimum>1</minimum>
-<maximum>4294967295</maximum>
-<step>1</step>
-</allowedValueRange>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>TotalBytesSent</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>TotalBytesReceived</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>TotalPacketsSent</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>TotalPacketsReceived</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>ByteSendRate</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>ByteReceiveRate</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>PacketSendRate</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>PacketReceiveRate</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>AutoDisconnectTime</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>IdleDisconnectTime</name>
-<dataType>ui4</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>DNSServer1</name>
-<dataType>string</dataType>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>DNSServer2</name>
-<dataType>string</dataType>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>VoipDNSServer1</name>
-<dataType>string</dataType>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>VoipDNSServer2</name>
-<dataType>string</dataType>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>UpnpControlEnabled</name>
-<dataType>boolean</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="no">
-<name>RoutedBridgedModeBoth</name>
-<dataType>ui1</dataType>
-<defaultValue>0</defaultValue>
-</stateVariable>
-<stateVariable sendEvents="yes">
-<name>LastEvent</name>
-<dataType>string</dataType>
-</stateVariable>
-</serviceStateTable>
+	<specVersion>
+		<major>1</major>
+		<minor>0</minor>
+	</specVersion>
+	<actionList>
+		<action>
+			<name>GetCommonLinkProperties</name>
+			<argumentList>
+				<argument>
+					<name>NewWANAccessType</name>
+					<direction>out</direction>
+					<relatedStateVariable>WANAccessType</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewLayer1UpstreamMaxBitRate</name>
+					<direction>out</direction>
+					<relatedStateVariable>Layer1UpstreamMaxBitRate
+					</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewLayer1DownstreamMaxBitRate</name>
+					<direction>out</direction>
+					<relatedStateVariable>Layer1DownstreamMaxBitRate
+					</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewPhysicalLinkStatus</name>
+					<direction>out</direction>
+					<relatedStateVariable>PhysicalLinkStatus</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+		<action>
+			<name>GetTotalBytesSent</name>
+			<argumentList>
+				<argument>
+					<name>NewTotalBytesSent</name>
+					<direction>out</direction>
+					<relatedStateVariable>TotalBytesSent</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+		<action>
+			<name>GetTotalBytesReceived</name>
+			<argumentList>
+				<argument>
+					<name>NewTotalBytesReceived</name>
+					<direction>out</direction>
+					<relatedStateVariable>TotalBytesReceived</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+		<action>
+			<name>GetTotalPacketsSent</name>
+			<argumentList>
+				<argument>
+					<name>NewTotalPacketsSent</name>
+					<direction>out</direction>
+					<relatedStateVariable>TotalPacketsSent</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+		<action>
+			<name>GetTotalPacketsReceived</name>
+			<argumentList>
+				<argument>
+					<name>NewTotalPacketsReceived</name>
+					<direction>out</direction>
+					<relatedStateVariable>TotalPacketsReceived</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+		<action>
+			<name>GetAddonInfos</name>
+			<argumentList>
+				<argument>
+					<name>NewByteSendRate</name>
+					<direction>out</direction>
+					<relatedStateVariable>ByteSendRate</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewByteReceiveRate</name>
+					<direction>out</direction>
+					<relatedStateVariable>ByteReceiveRate</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewPacketSendRate</name>
+					<direction>out</direction>
+					<relatedStateVariable>PacketSendRate</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewPacketReceiveRate</name>
+					<direction>out</direction>
+					<relatedStateVariable>PacketReceiveRate</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewTotalBytesSent</name>
+					<direction>out</direction>
+					<relatedStateVariable>TotalBytesSent</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewTotalBytesReceived</name>
+					<direction>out</direction>
+					<relatedStateVariable>TotalBytesReceived</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewAutoDisconnectTime</name>
+					<direction>out</direction>
+					<relatedStateVariable>AutoDisconnectTime</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewIdleDisconnectTime</name>
+					<direction>out</direction>
+					<relatedStateVariable>IdleDisconnectTime</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewDNSServer1</name>
+					<direction>out</direction>
+					<relatedStateVariable>DNSServer1</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewDNSServer2</name>
+					<direction>out</direction>
+					<relatedStateVariable>DNSServer2</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewVoipDNSServer1</name>
+					<direction>out</direction>
+					<relatedStateVariable>VoipDNSServer1</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewVoipDNSServer2</name>
+					<direction>out</direction>
+					<relatedStateVariable>VoipDNSServer2</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewUpnpControlEnabled</name>
+					<direction>out</direction>
+					<relatedStateVariable>UpnpControlEnabled</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NewRoutedBridgedModeBoth</name>
+					<direction>out</direction>
+					<relatedStateVariable>RoutedBridgedModeBoth</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+	</actionList>
+	<serviceStateTable>
+		<stateVariable sendEvents="no">
+			<name>WANAccessType</name>
+			<dataType>string</dataType>
+			<allowedValueList>
+				<allowedValue>DSL</allowedValue>
+				<allowedValue>POTS</allowedValue>
+				<allowedValue>Cable</allowedValue>
+				<allowedValue>Ethernet</allowedValue>
+				<allowedValue>Other</allowedValue>
+			</allowedValueList>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>Layer1UpstreamMaxBitRate</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>Layer1DownstreamMaxBitRate</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="yes">
+			<name>PhysicalLinkStatus</name>
+			<dataType>string</dataType>
+			<allowedValueList>
+				<allowedValue>Up</allowedValue>
+				<allowedValue>Down</allowedValue>
+				<allowedValue>Initializing</allowedValue>
+				<allowedValue>Unavailable</allowedValue>
+			</allowedValueList>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>WANAccessProvider</name>
+			<dataType>string</dataType>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>MaximumActiveConnections</name>
+			<dataType>ui2</dataType>
+			<defaultValue>0</defaultValue>
+			<allowedValueRange>
+				<minimum>1</minimum>
+				<maximum>4294967295</maximum>
+				<step>1</step>
+			</allowedValueRange>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>TotalBytesSent</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>TotalBytesReceived</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>TotalPacketsSent</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>TotalPacketsReceived</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>ByteSendRate</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>ByteReceiveRate</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>PacketSendRate</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>PacketReceiveRate</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>AutoDisconnectTime</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>IdleDisconnectTime</name>
+			<dataType>ui4</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>DNSServer1</name>
+			<dataType>string</dataType>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>DNSServer2</name>
+			<dataType>string</dataType>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>VoipDNSServer1</name>
+			<dataType>string</dataType>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>VoipDNSServer2</name>
+			<dataType>string</dataType>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>UpnpControlEnabled</name>
+			<dataType>boolean</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="no">
+			<name>RoutedBridgedModeBoth</name>
+			<dataType>ui1</dataType>
+			<defaultValue>0</defaultValue>
+		</stateVariable>
+		<stateVariable sendEvents="yes">
+			<name>LastEvent</name>
+			<dataType>string</dataType>
+		</stateVariable>
+	</serviceStateTable>
 </scpd>

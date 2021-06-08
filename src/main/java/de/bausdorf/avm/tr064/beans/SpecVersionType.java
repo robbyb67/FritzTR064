@@ -24,11 +24,11 @@ package de.bausdorf.avm.tr064.beans;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * <p>Java-Klasse fï¿½r specVersionType complex type.
+ * <p>Java-Klasse für specVersionType complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
@@ -37,8 +37,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="major" type="{http://www.w3.org/2001/XMLSchema}byte"/&gt;
- *         &lt;element name="minor" type="{http://www.w3.org/2001/XMLSchema}byte"/&gt;
+ *         &lt;element name="major" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="minor" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -47,23 +47,20 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@XmlRootElement (name="specVersion")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "specVersionType", propOrder = {
-    "major",
-    "minor"
-})
 public class SpecVersionType {
 
 	@XmlElement(name="major")
-    protected byte major;
+    private int major;
 	@XmlElement(name="minor")
-    protected byte minor;
+    private int minor;
 
     /**
      * Ruft den Wert der major-Eigenschaft ab.
      * 
      */
-    public byte getMajor() {
+    public int getMajor() {
         return major;
     }
 
@@ -71,7 +68,7 @@ public class SpecVersionType {
      * Legt den Wert der major-Eigenschaft fest.
      * 
      */
-    public void setMajor(byte value) {
+    public void setMajor(int value) {
         this.major = value;
     }
 
@@ -79,7 +76,7 @@ public class SpecVersionType {
      * Ruft den Wert der minor-Eigenschaft ab.
      * 
      */
-    public byte getMinor() {
+    public int getMinor() {
         return minor;
     }
 
@@ -87,7 +84,7 @@ public class SpecVersionType {
      * Legt den Wert der minor-Eigenschaft fest.
      * 
      */
-    public void setMinor(byte value) {
+    public void setMinor(int value) {
         this.minor = value;
     }
 

@@ -52,8 +52,7 @@ import de.bausdorf.avm.tr064.beans.ServiceDesc;
 import de.bausdorf.avm.tr064.beans.StateVariableType;
 
 public class Action {
-
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	private static final Logger LOGGER = LoggerFactory.getLogger(Action.class);
 
 	private Map<String, Class<?>> stateToType;
 	private Map<String, Boolean> argumentOut;
@@ -84,8 +83,9 @@ public class Action {
 				type = Date.class;
 			else if ("uuid".equals(s.getDataType()))
 				type = UUID.class;
-			else
-				log.error("UNKNOWNE TYPE:" + s.getDataType() + " " + s.getName() + "  " + actionXML.getName());
+			else {
+				LOGGER.error("UNKNOWNE TYPE: {} {} {}", s.getDataType(), s.getName(), actionXML.getName());
+			}
 			stateToType.put(s.getName(), type);
 		}
 		if (actionXML.getArgumentList() != null)
@@ -185,7 +185,7 @@ public class Action {
 			soapMsg.writeTo(stream);
 			message = new String(stream.toByteArray(), "utf-8");
 		} catch (SOAPException e) {
-			log.error(e.getMessage(), e);
+			LOGGER.error(e.getMessage(), e);
 		}
 
 		httpEntity = new StringEntity(message);
@@ -201,7 +201,7 @@ public class Action {
 			classOfValue = Class.forName(this.getTypeOfArgument(name).getName());
 		} catch (ClassNotFoundException | UnsupportedOperationException e) {
 			// Cant happen already checked
-			log.error(e.getMessage(), e);
+			LOGGER.error(e.getMessage(), e);
 		}
 
 		if (classOfValue == String.class) {
@@ -242,7 +242,7 @@ public class Action {
 		try {
 			response = MessageFactory.newInstance().createMessage(null, soapxmlis);
 		} catch (IOException | SOAPException e) {
-			throw new IOException(e.getMessage(), e);
+			throw new IOException(e);
 		}
 
 		if (response == null)
@@ -251,7 +251,7 @@ public class Action {
 		try {
 			ret = new Response(response, stateToType, argumentState);
 		} catch (SOAPException e) {
-			throw new IOException(e.getMessage(), e);
+			throw new IOException(e);
 		}
 		return ret;
 

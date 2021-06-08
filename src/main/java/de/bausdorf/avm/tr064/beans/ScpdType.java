@@ -25,6 +25,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -34,7 +35,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- * <p>Java-Klasse fÃ¼r scpdType complex type.
+ * <p>Java-Klasse für scpdType complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
@@ -54,7 +55,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * 
  * 
  */
-@XmlRootElement(name = "scpd", namespace = "urn:dslforum-org:service-1-0")
+@XmlRootElement(name = "scpd")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "scpdType", propOrder = {
 		"specVersion",
@@ -70,7 +71,7 @@ public class ScpdType
 	@XmlElement(name = "action")
 	private List<ActionType> actionList;
     @XmlElementWrapper(name="serviceStateTable")
-    @XmlElement(name="stateVariable", required = true)
+    @XmlAnyElement (lax = true)
     protected List<StateVariableType> serviceStateTable;
 	
 	/**

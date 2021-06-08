@@ -22,15 +22,14 @@ package de.bausdorf.avm.tr064.examples;
 
 import java.io.IOException;
 
-import javax.xml.bind.JAXBException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.bausdorf.avm.tr064.Action;
 import de.bausdorf.avm.tr064.FritzConnection;
-import de.bausdorf.avm.tr064.Service;
+import de.bausdorf.avm.tr064.ParseException;
 import de.bausdorf.avm.tr064.Response;
+import de.bausdorf.avm.tr064.Service;
 
 public class GetDeviceLog {
 	private static final Logger LOG = LoggerFactory.getLogger(GetDeviceLog.class);
@@ -61,7 +60,7 @@ public class GetDeviceLog {
 			//The connection has to be initiated. This will load the tr64desc.xml respectively igddesc.xml 
 			//and all the defined Services and Actions. 
 			fc.init(null);
-		} catch (IOException | JAXBException e2) {
+		} catch (IOException | ParseException e2) {
 			//Any HTTP related error.
 			LOG.error(e2.getMessage(), e2);
 		}

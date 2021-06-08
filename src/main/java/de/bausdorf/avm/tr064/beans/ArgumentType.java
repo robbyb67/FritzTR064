@@ -24,6 +24,7 @@ package de.bausdorf.avm.tr064.beans;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -31,7 +32,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 
 /**
- * <p>Java-Klasse fï¿½r argumentType complex type.
+ * <p>Java-Klasse für argumentType complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
@@ -51,6 +52,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * 
  * 
  */
+@XmlRootElement (name="argument")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "argumentType", propOrder = {
     "name",
